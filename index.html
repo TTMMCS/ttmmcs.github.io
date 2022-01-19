@@ -1,9 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>my site 2022!</title>
+        <title>Single Page</title>
+        <style>
+            div {
+                display: none;
+            }
+        </style>
+        <script>
+            function showPage(a) {
+                document.querySelectorAll('div').forEach(di => {
+                    di.style.display = 'none';
+                })
+                document.querySelector(`#${a}`).style.display = 'block';
+            }
+
+            document.addEventListener('DOMContentLoaded', function (){
+                document.querySelectorAll('button').forEach(butn =>{
+                    butn.onclick = function() {
+                        showPage(this.dataset.page);
+                    }
+                });
+            });
+
+        </script>
     </head>
     <body>
-        <h1>This is my GitHub Pages website 2022!</h1>
+        <button data-page="page1">Page 1</button>
+        <button data-page="pages2">Page 2</button>
+        <button data-page="page3">Page 3</button>
+
+        <div id="page1">
+            <h1>This is page 1.</h1>
+        </div>
+        <div id="pages2">
+            <h1>This is page 2.</h1>
+        </div>
+        <div id="page3">
+            <h1>This is page 3.</h1>
+        </div> 
     </body>
 </html>
